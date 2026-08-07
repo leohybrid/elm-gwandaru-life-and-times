@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/* ============================================
+   ELM GWANDARU — Design System
+   TailwindCSS v4 CSS-first configuration
+   ============================================ */
+
+/* --- Custom Properties --- */
+:root {
+  /* Primary — Deep Navy */
+  --color-primary-950: #071321;
+  --color-primary-900: #0E2038;
+  --color-primary-800: #162D48;
+  --color-primary-700: #253A58;
+
+  /* Secondary — Slate */
+  --color-secondary-600: #3E526B;
+  --color-secondary-500: #6A778A;
+  --color-secondary-400: #8A95A5;
+
+  /* Accent — Antique Gold */
+  --color-accent-500: #D2B36A;
+  --color-accent-600: #C8A35B;
+  --color-accent-300: #F4E5C1;
+  --color-accent-200: #F8F0DB;
+
+  /* Semantic */
+  --color-background: #071321;
+  --color-foreground: #F4E5C1;
+  --color-muted: #6A778A;
+}
+
+/* --- TailwindCSS v4 Theme --- */
+@theme inline {
+  /* Colors */
+  --color-primary-950: var(--color-primary-950);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-700: var(--color-primary-700);
+
+  --color-secondary-600: var(--color-secondary-600);
+  --color-secondary-500: var(--color-secondary-500);
+  --color-secondary-400: var(--color-secondary-400);
+
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-200: var(--color-accent-200);
+
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-muted: var(--color-muted);
+
+  /* Fonts */
+  --font-cinzel: var(--font-cinzel), "Times New Roman", serif;
+  --font-cormorant: var(--font-cormorant), "Georgia", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-manrope: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  /* Animation durations */
+  --animate-breathing: breathing 35s ease-in-out infinite;
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  --animate-drift: drift 60s linear infinite;
+  --animate-drift-reverse: drift 80s linear infinite reverse;
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+}
+
+/* --- Keyframes --- */
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(0.98) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.02) rotate(1.5deg);
+    opacity: 1;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes drift {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(210, 179, 106, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(210, 179, 106, 0.6));
+  }
+}
+
+/* --- Base Styles --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(210, 179, 106, 0.3);
+  color: var(--color-foreground);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary-600);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-500);
+}
+
+/* --- Typography Utilities --- */
+.heading-cinzel {
+  font-family: var(--font-cinzel);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+}
+
+.heading-cormorant {
+  font-family: var(--font-cormorant);
+  font-weight: 300;
+}
+
+.body-text {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.nav-text {
+  font-family: var(--font-manrope);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 300;
+  font-size: 0.75rem;
+}
+
+/* --- Gold Divider --- */
+.divider-gold {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-500),
+    transparent
+  );
+  margin: 2rem auto;
+}
+
+/* --- Gradient Fade Between Sections --- */
+.section-fade {
+  position: relative;
+}
+
+.section-fade::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-primary-950)
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Focus Styles --- */
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+/* --- Smooth section transitions --- */
+section {
+  position: relative;
+}
