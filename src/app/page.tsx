@@ -1,54 +1,38 @@
-import Button from "@/components/ui/Button";
+import HeroScene from "@/components/hero/HeroScene";
 
 /**
- * Temporary homepage to verify Phase 1 foundation:
- * - Fonts (Cinzel, Cormorant, Inter, Manrope)
- * - Colors (primary, secondary, accent)
- * - Button component
- * - Smooth scroll
- * - Dark theme
+ * Homepage — ELM GWANDARU
+ * Cinematic progression: Hero → Quote → Featured → Journal → Poetry → Gallery → Essays → Footer
  */
 export default function Home() {
   return (
-    <div className="min-h-screen bg-primary-950 flex flex-col items-center justify-center px-6">
-      {/* Logo */}
-      <h1
-        className="font-cinzel text-accent-500 text-4xl md:text-6xl tracking-[0.2em] font-normal mb-4"
-      >
-        ELM GWANDARU
-      </h1>
+    <>
+      {/* 100vh Hero Scene */}
+      <HeroScene />
 
-      {/* Subtitle */}
-      <p className="font-cormorant text-secondary-400 text-xl md:text-2xl italic font-light tracking-wide mb-2">
-        Life and Times
-      </p>
+      {/* Placeholder sections below hero — will be built in Phase 4 */}
+      <section className="relative bg-primary-950 py-32 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="divider-gold mb-12" />
+          <blockquote className="font-cormorant text-accent-200 text-2xl md:text-3xl italic font-light leading-relaxed">
+            &ldquo;We are stardust brought to life, then empowered by the
+            universe to figure itself out — and we have only just begun.&rdquo;
+          </blockquote>
+          <p className="font-manrope text-secondary-600 text-xs tracking-[0.2em] uppercase mt-8">
+            — Neil deGrasse Tyson
+          </p>
+          <div className="divider-gold mt-12" />
+        </div>
+      </section>
 
-      {/* Divider */}
-      <div className="divider-gold my-8" />
-
-      {/* Body text */}
-      <p className="font-sans text-secondary-500 text-sm font-light max-w-md text-center leading-relaxed mb-12">
-        A cinematic digital sanctuary at the intersection of philosophy,
-        astronomy, ancient civilizations, poetry, and sacred geometry.
-      </p>
-
-      {/* Buttons */}
-      <div className="flex gap-6">
-        <Button variant="primary" size="lg">
-          Enter
-        </Button>
-        <Button variant="secondary" size="lg">
-          Explore
-        </Button>
-      </div>
-
-      {/* Font verification */}
-      <div className="mt-20 space-y-4 text-center opacity-40">
-        <p className="nav-text text-secondary-400">Navigation · Manrope</p>
-        <p className="font-cinzel text-accent-300 text-lg tracking-widest">Heading · Cinzel</p>
-        <p className="font-cormorant text-accent-200 text-xl italic">Editorial · Cormorant Garamond</p>
-        <p className="font-sans text-secondary-500 text-sm">Body · Inter</p>
-      </div>
-    </div>
+      {/* Spacer section to test parallax scroll */}
+      <section className="relative bg-primary-950 py-40 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="font-sans text-secondary-500 text-sm font-light leading-relaxed">
+            More sections coming in Phase 4...
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
