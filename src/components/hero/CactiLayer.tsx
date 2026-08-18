@@ -20,7 +20,7 @@ export default function CactiLayer() {
           src="/hero/cacti.png"
           alt=""
           fill
-          className="object-contain object-bottom object-left"
+          className="object-contain object-bottom object-left mix-blend-screen"
           sizes="(max-width: 768px) 20vw, 250px"
           quality={75}
         />
@@ -32,7 +32,7 @@ export default function CactiLayer() {
           src="/hero/cacti.png"
           alt=""
           fill
-          className="object-contain object-bottom object-right scale-x-[-1]"
+          className="object-contain object-bottom object-right scale-x-[-1] mix-blend-screen"
           sizes="(max-width: 768px) 18vw, 220px"
           quality={75}
         />

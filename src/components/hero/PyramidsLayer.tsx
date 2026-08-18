@@ -17,7 +17,7 @@ export default function PyramidsLayer() {
         src="/hero/pyramids.png"
         alt=""
         fill
-        className="object-contain object-bottom"
+        className="object-contain object-bottom mix-blend-screen"
         sizes="(max-width: 768px) 90vw, 800px"
         quality={80}
       />
