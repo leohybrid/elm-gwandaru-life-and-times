@@ -3,6 +3,7 @@ import { Cinzel, Cormorant_Garamond, Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import AnimationProvider from "@/providers/AnimationProvider";
+import Navbar from "@/components/navigation/Navbar";
 
 /* ============================================
    Google Fonts — self-hosted via next/font
@@ -92,6 +93,7 @@ export default function RootLayout({
       <body>
         <AnimationProvider>
           <SmoothScrollProvider>
+            <Navbar />
             <main id="main-content">{children}</main>
           </SmoothScrollProvider>
         </AnimationProvider>
