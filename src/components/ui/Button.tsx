@@ -1,19 +1,22 @@
 "use client";
 
+import Link from "next/link";
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
+  href?: string;
 }
 
 /**
  * Luxury museum-style button.
  * Transparent with thin gold border, backdrop blur,
  * hover glow + lift + soft gold fill.
+ * When `href` is provided, renders as a Next.js Link.
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className = "", variant = "primary", size = "md", children, ...props }, ref) => {
+  ({ className = "", variant = "primary", size = "md", href, children, ...props }, ref) => {
     const baseStyles = [
       "relative inline-flex items-center justify-center",
       "font-manrope uppercase tracking-[0.15em] font-light",
@@ -51,12 +54,18 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       lg: "px-10 py-4 text-[0.75rem]",
     };
 
+    const allClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+
+    if (href) {
+      return (
+        <Link href={href} className={allClasses}>
+          {children}
+        </Link>
+      );
+    }
+
     return (
-      <button
-        ref={ref}
-        className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-        {...props}
-      >
+      <button ref={ref} className={allClasses} {...props}>
         {children}
       </button>
     );
