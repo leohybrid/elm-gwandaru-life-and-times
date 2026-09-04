@@ -106,8 +106,8 @@ export default function HeroScene() {
       {/* Layer 5: Hero Content & Typography — Above all scene visual layers */}
       <HeroContent />
 
-      {/* Layer 6: Bottom gradient fade into next chamber */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-primary-950 z-30 pointer-events-none" />
+      {/* Layer 6: Subtle bottom edge fade into next chamber */}
+      <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-b from-transparent to-primary-950/70 z-30 pointer-events-none" />
     </section>
   );
 }
