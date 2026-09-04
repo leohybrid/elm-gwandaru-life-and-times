@@ -5,7 +5,6 @@ import {
   AboutTeaser,
   JournalPreview,
 } from "@/components/sections/HomeSections";
-import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -24,9 +23,6 @@ export default function Home() {
 
       {/* Section 5: Latest from journal */}
       <JournalPreview />
-
-      {/* Footer */}
-      <Footer />
     </>
   );
 }
