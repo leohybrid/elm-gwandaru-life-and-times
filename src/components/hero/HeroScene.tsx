@@ -1,16 +1,12 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-import CosmosLayer from "./CosmosLayer";
+import LunarDesertLayer from "./LunarDesertLayer";
 import CloudLayer from "./CloudLayer";
-import DesertLayer from "./DesertLayer";
-import PyramidsLayer from "./PyramidsLayer";
-import CactiLayer from "./CactiLayer";
-import ForegroundLayer from "./ForegroundLayer";
 import HeroContent from "./HeroContent";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -30,8 +26,14 @@ const SacredGeometry = dynamic(() => import("./SacredGeometry"), {
 
 /**
  * HeroScene — Main hero section orchestrator.
- * Manages all parallax layers in correct z-order.
- * 100vh immersive scene.
+ * Seamless, cinematic 100vh hero environment:
+ * - Lunar surface craters and dust blended with sandy desert dunes
+ * - Weathered archaeological skeletons and bones in the foreground sand
+ * - Ancient pyramids under starlight in the midground
+ * - Distant silhouettes of cacti seen far away on the horizon
+ * - Live Three.js procedural twinkling star field
+ * - Breathing SVG Flower of Life sacred geometry
+ * - Zero black-box artifacts or isolated blending clipping
  */
 export default function HeroScene() {
   const heroRef = useRef<HTMLElement>(null);
@@ -78,54 +80,34 @@ export default function HeroScene() {
       className="relative w-full h-screen overflow-hidden bg-primary-950"
       aria-label="Hero section"
     >
-      {/* Layer 1: Cosmos — z-0 */}
+      {/* Layer 1: Lunar Desert Landscape — dunes, skeletons, pyramids, distant cacti, cosmos */}
       <div className="absolute inset-0 z-0">
-        <CosmosLayer />
+        <LunarDesertLayer />
       </div>
 
-      {/* Layer 2: Stars — z-[1] */}
-      <div className="absolute inset-0 z-[1]" data-parallax-speed="0.2">
+      {/* Layer 2: Live Three.js Procedural Twinkling Stars */}
+      <div className="absolute inset-0 z-[1] pointer-events-none" data-parallax-speed="0.2">
         <StarField />
       </div>
 
-      {/* Layer 3: Clouds — z-[2] */}
-      <div className="absolute inset-0 z-[2]">
+      {/* Layer 3: Atmospheric Cloud & Nebula Drift */}
+      <div className="absolute inset-0 z-[2] pointer-events-none opacity-30">
         <CloudLayer />
       </div>
 
-      {/* Layer 4: Sacred Geometry — z-[3] */}
+      {/* Layer 4: Sacred Geometry — Glowing SVG Flower of Life */}
       <div
-        className="absolute inset-0 z-[3] flex items-center justify-center"
+        className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none"
         data-parallax-speed="0.5"
       >
         <SacredGeometry />
       </div>
 
-      {/* Layer 5: Desert — z-[4] */}
-      <div className="absolute inset-0 z-[4]">
-        <DesertLayer />
-      </div>
-
-      {/* Layer 6: Pyramids — z-[5] */}
-      <div className="absolute inset-0 z-[5]">
-        <PyramidsLayer />
-      </div>
-
-      {/* Layer 7: Cacti — z-[6] */}
-      <div className="absolute inset-0 z-[6]">
-        <CactiLayer />
-      </div>
-
-      {/* Layer 8: Foreground — z-[7] */}
-      <div className="absolute inset-0 z-[7]">
-        <ForegroundLayer />
-      </div>
-
-      {/* Layer 9: Content — z-20 (above all scene layers) */}
+      {/* Layer 5: Hero Content & Typography — Above all scene visual layers */}
       <HeroContent />
 
-      {/* Bottom gradient fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-primary-950 z-30" />
+      {/* Layer 6: Bottom gradient fade into next chamber */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-primary-950 z-30 pointer-events-none" />
     </section>
   );
 }
