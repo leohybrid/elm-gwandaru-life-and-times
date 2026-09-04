@@ -4,12 +4,12 @@ import Image from "next/image";
 
 /**
  * LunarDesertLayer
- * Unified, luminous cinematic landscape:
- * - Wind-rippled golden desert sand dunes meeting cratered lunar surface
- * - Ancient archaeological skeleton and bones resting in the foreground sand
- * - Stone pyramids rising from the desert under the Milky Way
- * - Saguaro cacti silhouettes seen far away along the distant dune horizon
- * - Warm antique gold starlight highlights bringing the sand texture alive
+ * Unified, contemplative cinematic landscape:
+ * - Wind-rippled desert floor with subtle lunar crater contours
+ * - Two ancient weathered skulls resting quietly at the lower-left periphery
+ * - Stone pyramids rising from the desert in the midground under the Milky Way
+ * - Exactly two solitary saguaro cacti silhouettes seen far away on the horizon
+ * - Warm antique gold starlight highlights on the dunes
  */
 export default function LunarDesertLayer() {
   return (
@@ -19,7 +19,7 @@ export default function LunarDesertLayer() {
     >
       <Image
         src="/hero/lunar-desert-landscape.jpg"
-        alt="Ancient pyramids and golden lunar desert dunes with distant cacti and foreground archaeological skeletons under starry sky"
+        alt="Ancient pyramids and desert dunes with lunar craters, two skulls at the periphery, and two distant cacti under starry sky"
         fill
         priority
         unoptimized
