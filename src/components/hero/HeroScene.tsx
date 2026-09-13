@@ -6,7 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 import LunarDesertLayer from "./LunarDesertLayer";
-import CloudLayer from "./CloudLayer";
+import ShootingStar from "./ShootingStar";
+import SkullBubbles from "./SkullBubbles";
 import HeroContent from "./HeroContent";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,14 +27,15 @@ const SacredGeometry = dynamic(() => import("./SacredGeometry"), {
 
 /**
  * HeroScene — Main hero section orchestrator.
- * Seamless, cinematic 100vh hero environment:
+ * Cinematic 100vh hero environment:
  * - Lunar surface craters and dust blended with sandy desert dunes
- * - Weathered archaeological skeletons and bones in the foreground sand
- * - Ancient pyramids under starlight in the midground
- * - Distant silhouettes of cacti seen far away on the horizon
+ * - Weathered archaeological skulls at periphery
+ * - Pyramids under starlight in midground
+ * - Distant silhouettes of 2 cacti on far dune horizon
  * - Live Three.js procedural twinkling star field
+ * - Shooting star streaking left-to-right every 5 seconds across the sky
+ * - Shimmering colorful soap bubbles rising as if blown from the skulls
  * - Breathing SVG Flower of Life sacred geometry
- * - Zero black-box artifacts or isolated blending clipping
  */
 export default function HeroScene() {
   const heroRef = useRef<HTMLElement>(null);
@@ -80,7 +82,7 @@ export default function HeroScene() {
       className="relative w-full h-screen overflow-hidden bg-primary-950"
       aria-label="Hero section"
     >
-      {/* Layer 1: Lunar Desert Landscape — dunes, skeletons, pyramids, distant cacti, cosmos */}
+      {/* Layer 1: Lunar Desert Landscape — dunes, skulls at periphery, pyramids, 2 distant cacti */}
       <div className="absolute inset-0 z-0">
         <LunarDesertLayer />
       </div>
@@ -90,10 +92,8 @@ export default function HeroScene() {
         <StarField />
       </div>
 
-      {/* Layer 3: Atmospheric Cloud & Nebula Drift */}
-      <div className="absolute inset-0 z-[2] pointer-events-none opacity-30">
-        <CloudLayer />
-      </div>
+      {/* Layer 3: Shooting Star — Streaks left-to-right every 5 seconds */}
+      <ShootingStar />
 
       {/* Layer 4: Sacred Geometry — Glowing SVG Flower of Life */}
       <div
@@ -103,10 +103,13 @@ export default function HeroScene() {
         <SacredGeometry />
       </div>
 
-      {/* Layer 5: Hero Content & Typography — Above all scene visual layers */}
+      {/* Layer 5: Skull Bubbles — Colorful iridescent soap bubbles rising from the skulls */}
+      <SkullBubbles />
+
+      {/* Layer 6: Hero Content & Typography — Above all visual scene layers */}
       <HeroContent />
 
-      {/* Layer 6: Subtle bottom edge fade into next chamber */}
+      {/* Layer 7: Subtle bottom edge fade into next chamber */}
       <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-b from-transparent to-primary-950/70 z-30 pointer-events-none" />
     </section>
   );
