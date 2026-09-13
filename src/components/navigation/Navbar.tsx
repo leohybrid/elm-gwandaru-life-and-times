@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import SearchOverlay from "./SearchOverlay";
+import MemberModal from "../auth/MemberModal";
 
 const navLinks = [
   { href: "/about", label: "About" },
@@ -23,6 +24,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMemberModalOpen, setIsMemberModalOpen] = useState(false);
 
   // Monitor scroll height to apply backdrop blur
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center space-x-8">
+          <div className="hidden xl:flex items-center space-x-7">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -89,6 +91,14 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* Members Portal Link */}
+            <button
+              onClick={() => setIsMemberModalOpen(true)}
+              className="font-manrope text-[0.7rem] uppercase tracking-[0.2em] text-accent-500 hover:text-accent-300 border border-accent-500/30 hover:border-accent-500 px-3.5 py-1.5 transition-all duration-300 cursor-pointer"
+            >
+              Members
+            </button>
           </div>
 
           {/* Actions: Search Button & Hamburger */}
@@ -155,8 +165,8 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-30 bg-primary-950/98 backdrop-blur-lg flex flex-col justify-center px-8 md:px-16 xl:hidden"
           >
-            <div className="flex flex-col space-y-6 max-w-md mx-auto w-full text-center">
-              <h3 className="font-cinzel text-accent-500/40 text-[0.65rem] tracking-[0.3em] uppercase mb-4">
+            <div className="flex flex-col space-y-5 max-w-md mx-auto w-full text-center">
+              <h3 className="font-cinzel text-accent-500/40 text-[0.65rem] tracking-[0.3em] uppercase mb-2">
                 Navigation
               </h3>
               {navLinks.map((link, idx) => {
@@ -166,13 +176,13 @@ export default function Navbar() {
                     key={link.href}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + idx * 0.05 }}
+                    transition={{ delay: 0.1 + idx * 0.04 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        "font-manrope text-lg uppercase tracking-[0.25em] transition-colors relative block py-2",
+                        "font-manrope text-base uppercase tracking-[0.25em] transition-colors relative block py-1.5",
                         isActive ? "text-accent-500" : "text-secondary-400 hover:text-accent-300"
                       )}
                     >
@@ -181,6 +191,22 @@ export default function Navbar() {
                   </motion.div>
                 );
               })}
+
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.45 }}
+              >
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsMemberModalOpen(true);
+                  }}
+                  className="w-full font-manrope text-sm uppercase tracking-[0.25em] text-accent-300 border border-accent-500/40 py-2.5 bg-accent-500/10 mt-4"
+                >
+                  Members Portal
+                </button>
+              </motion.div>
             </div>
           </motion.div>
         )}
@@ -190,6 +216,12 @@ export default function Navbar() {
       <SearchOverlay
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
+      />
+
+      {/* Member Modal */}
+      <MemberModal
+        isOpen={isMemberModalOpen}
+        onClose={() => setIsMemberModalOpen(false)}
       />
     </>
   );
