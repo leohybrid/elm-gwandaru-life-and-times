@@ -6,16 +6,16 @@ import { motion, AnimatePresence } from "framer-motion";
 interface Bubble {
   id: number;
   size: number;     // diameter in px
-  startX: number;   // initial X offset near skulls (vw)
-  driftX: number;   // sway range (px)
+  startX: number;   // initial X offset on the left side (px)
+  driftX: number;   // horizontal sway range (px)
   duration: number; // ascend duration in seconds
-  delay: number;
 }
 
 /**
  * SkullBubbles Component
- * Spawns a steady stream of colorless, translucent glass bubbles
- * rising continuously from the skulls in the sand all the way to the top of the screen.
+ * Spawns a mesmerizing stream of translucent, colorless glass bubbles along the left side
+ * of the screen, floating continuously from the skulls and buried treasure chest at the bottom
+ * all the way up to the very top of the sky.
  */
 export default function SkullBubbles() {
   const [bubbles, setBubbles] = useState<Bubble[]>([]);
@@ -26,29 +26,28 @@ export default function SkullBubbles() {
     const spawnBubble = () => {
       const newBubble: Bubble = {
         id: nextId++,
-        size: 14 + Math.random() * 28,             // 14px to 42px
-        startX: (Math.random() - 0.5) * 6,          // small offset near skull
-        driftX: 30 + (Math.random() - 0.5) * 80,    // gentle horizontal sway
-        duration: 7.0 + Math.random() * 4.0,       // 7s to 11s float to top
-        delay: 0,
+        size: 14 + Math.random() * 32,            // 14px to 46px
+        startX: (Math.random() - 0.5) * 40,        // clustered along left margin
+        driftX: 25 + (Math.random() - 0.5) * 60,   // gentle horizontal sway
+        duration: 7.5 + Math.random() * 4.5,      // 7.5s to 12s float to top
       };
 
       setBubbles((prev) => {
-        // Keep active bubble pool at up to 20 bubbles
-        const updated = [...prev.slice(-19), newBubble];
+        // Keep active bubble pool at up to 22 bubbles along left side
+        const updated = [...prev.slice(-21), newBubble];
         return updated;
       });
     };
 
     // Initial batch for immediate immersion
-    const t1 = setTimeout(spawnBubble, 200);
-    const t2 = setTimeout(spawnBubble, 600);
-    const t3 = setTimeout(spawnBubble, 1000);
+    const t1 = setTimeout(spawnBubble, 150);
+    const t2 = setTimeout(spawnBubble, 500);
+    const t3 = setTimeout(spawnBubble, 900);
 
-    // Continuous blowing cadence (every 600ms)
+    // Continuous cadence (every 550ms)
     const interval = setInterval(() => {
       spawnBubble();
-    }, 650);
+    }, 550);
 
     return () => {
       clearTimeout(t1);
@@ -62,8 +61,9 @@ export default function SkullBubbles() {
     <div
       className="absolute pointer-events-none z-[8] select-none"
       style={{
-        left: "17%",
-        bottom: "16%",
+        // Positioned along the left margin of the screen, anchored near bottom sand
+        left: "7%",
+        bottom: "10%",
       }}
     >
       <AnimatePresence>
@@ -73,20 +73,20 @@ export default function SkullBubbles() {
             initial={{
               x: b.startX,
               y: 0,
-              scale: 0.2,
+              scale: 0.15,
               opacity: 0,
             }}
             animate={{
               x: [
                 b.startX,
-                b.startX + b.driftX * 0.4 + 15,
-                b.startX + b.driftX * 0.8 - 12,
+                b.startX + b.driftX * 0.4 + 12,
+                b.startX + b.driftX * 0.8 - 10,
                 b.startX + b.driftX,
               ],
-              // Ascends all the way to top of viewport (-85vh)
-              y: [0, "-25vh", "-55vh", "-85vh"],
-              scale: [0.2, 1, 1.05, 1.1, 1.15],
-              opacity: [0, 0.85, 0.8, 0.7, 0],
+              // Ascends all the way to top of viewport (-95vh)
+              y: [0, "-30vh", "-65vh", "-95vh"],
+              scale: [0.15, 1, 1.08, 1.15, 1.25],
+              opacity: [0, 0.9, 0.85, 0.75, 0],
             }}
             transition={{
               duration: b.duration,
@@ -103,19 +103,19 @@ export default function SkullBubbles() {
             <div
               className="w-full h-full rounded-full relative"
               style={{
-                background: `radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.12) 40%, rgba(255, 255, 255, 0.04) 75%, rgba(255, 255, 255, 0.25) 100%)`,
+                background: `radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.14) 40%, rgba(255, 255, 255, 0.04) 75%, rgba(255, 255, 255, 0.3) 100%)`,
                 boxShadow: `
-                  inset 0 0 ${b.size * 0.25}px rgba(255, 255, 255, 0.7),
-                  inset 1px 1px 3px rgba(255, 255, 255, 0.9),
-                  0 0 ${b.size * 0.2}px rgba(255, 255, 255, 0.25)
+                  inset 0 0 ${b.size * 0.25}px rgba(255, 255, 255, 0.75),
+                  inset 1px 1px 3px rgba(255, 255, 255, 0.95),
+                  0 0 ${b.size * 0.25}px rgba(255, 255, 255, 0.3)
                 `,
-                border: "1px solid rgba(255, 255, 255, 0.45)",
+                border: "1px solid rgba(255, 255, 255, 0.5)",
                 backdropFilter: "blur(0.5px)",
               }}
             >
               {/* Crescent Specular Glint (Top Left) */}
               <div
-                className="absolute rounded-full bg-white/90"
+                className="absolute rounded-full bg-white/95"
                 style={{
                   top: "16%",
                   left: "20%",
@@ -128,7 +128,7 @@ export default function SkullBubbles() {
 
               {/* Secondary Glint (Bottom Right) */}
               <div
-                className="absolute rounded-full bg-white/60"
+                className="absolute rounded-full bg-white/70"
                 style={{
                   bottom: "18%",
                   right: "22%",
