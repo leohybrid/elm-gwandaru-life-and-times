@@ -12,15 +12,10 @@ import HeroContent from "./HeroContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Dynamic imports for Three.js components (SSR-safe)
+// Dynamic import for Three.js components (SSR-safe)
 import dynamic from "next/dynamic";
 
 const StarField = dynamic(() => import("./StarField"), {
-  ssr: false,
-  loading: () => null,
-});
-
-const SacredGeometry = dynamic(() => import("./SacredGeometry"), {
   ssr: false,
   loading: () => null,
 });
@@ -29,13 +24,13 @@ const SacredGeometry = dynamic(() => import("./SacredGeometry"), {
  * HeroScene — Main hero section orchestrator.
  * Cinematic 100vh hero environment:
  * - Lunar surface craters and dust blended with sandy desert dunes
- * - Weathered archaeological skulls at periphery
+ * - Weathered archaeological skulls at lower-left periphery
  * - Pyramids under starlight in midground
  * - Distant silhouettes of 2 cacti on far dune horizon
  * - Live Three.js procedural twinkling star field
  * - Shooting star streaking left-to-right every 5 seconds across the sky
- * - Shimmering colorful soap bubbles rising as if blown from the skulls
- * - Breathing SVG Flower of Life sacred geometry
+ * - Translucent glass bubbles ascending all the way to top of screen
+ * - Hero content typography (unobstructed by large center overlay)
  */
 export default function HeroScene() {
   const heroRef = useRef<HTMLElement>(null);
@@ -95,21 +90,13 @@ export default function HeroScene() {
       {/* Layer 3: Shooting Star — Streaks left-to-right every 5 seconds */}
       <ShootingStar />
 
-      {/* Layer 4: Sacred Geometry — Glowing SVG Flower of Life */}
-      <div
-        className="absolute inset-0 z-[3] flex items-center justify-center pointer-events-none"
-        data-parallax-speed="0.5"
-      >
-        <SacredGeometry />
-      </div>
-
-      {/* Layer 5: Skull Bubbles — Colorful iridescent soap bubbles rising from the skulls */}
+      {/* Layer 4: Skull Bubbles — Colorless translucent glass bubbles rising from skulls to top of screen */}
       <SkullBubbles />
 
-      {/* Layer 6: Hero Content & Typography — Above all visual scene layers */}
+      {/* Layer 5: Hero Content & Typography — Clean, unobstructed typography */}
       <HeroContent />
 
-      {/* Layer 7: Subtle bottom edge fade into next chamber */}
+      {/* Layer 6: Subtle bottom edge fade into next chamber */}
       <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-b from-transparent to-primary-950/70 z-30 pointer-events-none" />
     </section>
   );

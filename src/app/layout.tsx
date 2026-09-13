@@ -5,6 +5,7 @@ import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import AnimationProvider from "@/providers/AnimationProvider";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/layout/Footer";
+import FlowerOfLifeWatermark from "@/components/layout/FlowerOfLifeWatermark";
 
 /* ============================================
    Google Fonts — self-hosted via next/font
@@ -91,9 +92,12 @@ export default function RootLayout({
       lang="en"
       className={`${cinzel.variable} ${cormorant.variable} ${inter.variable} ${manrope.variable}`}
     >
-      <body>
+      <body className="relative bg-primary-950 text-foreground">
         <AnimationProvider>
           <SmoothScrollProvider>
+            {/* Universal Flower of Life repeating background watermark */}
+            <FlowerOfLifeWatermark />
+
             <Navbar />
             <main id="main-content">{children}</main>
             <Footer />
