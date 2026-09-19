@@ -169,14 +169,7 @@ const latestPosts = [
 
 export function JournalPreview() {
   return (
-    <section className="relative bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-accent-500/10 via-primary-900/40 to-primary-950 py-24 md:py-36 px-6 section-fade overflow-hidden">
-      {/* Landscape Dune Ridge Silhouette Effect at Bottom */}
-      <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-32 opacity-20 pointer-events-none z-0">
-        <svg viewBox="0 0 1440 320" className="w-full h-full text-accent-500/40 fill-current preserve-3d">
-          <path d="M0,192L60,181.3C120,171,240,149,360,154.7C480,160,600,192,720,202.7C840,213,960,203,1080,186.7C1200,171,1320,149,1380,138.7L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
-        </svg>
-      </div>
-
+    <section className="relative bg-primary-950 py-24 md:py-36 px-6 section-fade overflow-hidden">
       <div className="max-w-3xl mx-auto relative z-10">
         <ScrollReveal direction="up" duration={0.8} className="text-center mb-14">
           <p className="font-manrope text-accent-500/60 text-[0.65rem] tracking-[0.3em] uppercase mb-4">
