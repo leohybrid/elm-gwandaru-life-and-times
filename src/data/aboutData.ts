@@ -1,32 +1,55 @@
-export interface AboutData {
-  authorName: string;
-  tagline: string;
-  biography: string[];
-  philosophicalPillars: {
-    title: string;
-    description: string;
-  }[];
+export interface AboutManifesto {
+  title: string;
+  subtitle: string;
+  author: string;
+  sections: string[];
 }
 
-export const aboutData: AboutData = {
-  authorName: "ELM GWANDARU",
-  tagline: "At the Intersection of Ancient Wisdom & Cosmic Wonder",
-  biography: [
-    "ELM GWandaru is a digital sanctuary for those who question, wonder, and explore.",
-    "A space where poetry, philosophy, astronomy, ancient civilizations, and sacred geometry meet.",
-  ],
-  philosophicalPillars: [
-    {
-      title: "Cosmic Perspective",
-      description: "Remembering our smallness beneath ten billion stars.",
-    },
-    {
-      title: "Sacred Geometry",
-      description: "Tracing the silent mathematical patterns of consciousness.",
-    },
-    {
-      title: "Human Absurdity & Faith",
-      description: "Examining the quiet mysteries of being alive.",
-    },
+export const aboutManifesto: AboutManifesto = {
+  title: "About the Sanctuary",
+  subtitle: "Philosophy, Story, & Wisdom",
+  author: "ELM GWandaru",
+  sections: [
+    "I have never been particularly interested in building a place where everything makes sense.",
+    "The Sanctuary was born from a different instinct—the need to make a place where questions could breathe.",
+    "I am **ELM GWandaru**, a poet, thinker, observer, and student of the strange relationship between being alive and trying to understand what the hell that means.",
+    "I write from the spaces between things.",
+    "Between the ancient and the unfinished.\nBetween the stars and the soil.\nBetween what we believe and what we can prove.\nBetween the person we were, the person we pretend to be, and the person quietly becoming beneath it all.",
+    "My work moves through poetry, philosophy, ancient histories, astronomy, art, stories, and the ordinary madness of being human. I am fascinated by the things that survive us—ideas, ruins, myths, stars, questions—and by the things that disappear almost unnoticed: a feeling, a name, a version of ourselves we once thought would last forever.",
+    "The Sanctuary is my attempt to give those things a room.",
+    "It is not a museum of answers.",
+    "It is a collection of questions.",
+    "A place for the poem that refuses to explain itself.\nFor the thought that arrives at three in the morning and refuses to leave.\nFor the ancient story that somehow knows something about us.\nFor the stars that remind us how small we are without making us insignificant.",
+    "I believe creativity is not simply the act of making something beautiful.",
+    "Sometimes it is the act of looking at something uncomfortable long enough to see it differently.",
+    "Sometimes it is remembering.",
+    "Sometimes it is breaking a pattern.",
+    "Sometimes it is simply refusing to become numb.",
+    "That is why the Sanctuary moves freely between worlds.",
+    "One chamber may lead into poetry. Another into astronomy. Another into an old civilization, a forgotten symbol, a philosophical question, a piece of art, or a story that has been waiting centuries to be heard again.",
+    "These things may appear unrelated.",
+    "I don't think they are.",
+    "We are made from the same ancient dust we spend our lives trying to name. We inherit histories we did not choose. We carry civilizations inside our language, our fears, our rituals, our architecture, our dreams. We look toward the heavens while standing on graves, foundations, roads, cities and ruins built by people who once looked at the same sky and wondered what we wonder now.",
+    "Perhaps that is the great continuity of being human:\n\n**We keep asking.**",
+    "The Sanctuary is built around that asking.",
+    "Its geometry is sacred not because I claim to possess some secret knowledge of the universe, but because geometry reminds us that beneath apparent chaos, patterns exist. Circles return. Spirals expand. Stars are born and disappear. Civilizations rise, fracture, and become archaeology. People arrive, love, suffer, create, disappear—and leave behind enough fragments for someone else to wonder who they were.",
+    "I am interested in those fragments.",
+    "And in ours.",
+    "So this place is not really about me.",
+    "It is about the encounter between you and whatever you find here.",
+    "A poem might remind you of something you buried.",
+    "A story might disturb something you thought you understood.",
+    "A constellation might make your problems feel smaller—or your existence feel infinitely more precious.",
+    "A forgotten civilization might make you question how permanent your own world really is.",
+    "And perhaps, somewhere in all of that, you may find a thought worth carrying home.",
+    "That is enough.",
+    "I don't want the Sanctuary to tell you what to think.",
+    "I want it to make you **think more deeply.**",
+    "To wonder.\nTo remember.\nTo feel.\nTo look again.",
+    "Because life is brief, history is long, the universe is incomprehensibly old, and somehow we have been given this strange little interval in which to exist.",
+    "So I write from inside it.",
+    "Not as a prophet.\nNot as an authority.\nJust as a human being paying attention.",
+    "Welcome to the Sanctuary.",
+    "**Come as you are.\nLeave with a question.**",
   ],
 };
