@@ -10,6 +10,25 @@ export interface Poem {
 
 export const poemList: Poem[] = [
   {
+    id: "them-lessons",
+    title: "Them Lessons",
+    subtitle: "By ELM GWANDARU",
+    author: "ELM GWANDARU",
+    date: "September 2026",
+    category: "Reflections & Survival",
+    stanzas: [
+      "Shit I planned, shit I didn't plan,\nOpen and closed at once,\nA song and a war for compliments,\nA pain, a home with unpaid mortgages,\nNothing is the same.",
+      "I learned that doors can open\nwith nobody waiting on the other side,\nthat sometimes the key\nis just another thing you lose.",
+      "I learned that love can be shelter\nand still leave you homeless,\nthat some hands hold you\nonly long enough to learn your shape.",
+      "I learned silence has a language,\nand absence has a voice,\nthat the things we never said\ncan outlive everything we did.",
+      "I learned you can win a war\nand still come home defeated,\nshake hands with your enemies\nwhile mourning the person you were\nbefore you learned how to fight.",
+      "Some lessons came gently,\nlike rain against a window.\nOthers came dressed as people\nI called home.",
+      "And I—\nI kept the receipts.\n\nEvery goodbye.\nEvery almost.\nEvery promise that expired\nwithout the courtesy of a warning.",
+      "Shit I planned.\nShit I didn't.\n\nSomewhere between the two,\nI became someone\nI never introduced myself to.",
+      "Nothing is the same.\n\nMaybe that's the lesson.\n\nNot everything is meant\nto remain recognizable\nafter it has taught you\nhow to survive it.",
+    ],
+  },
+  {
     id: "the-fault-in-the-immortal",
     title: "The Fault in the Immortal",
     subtitle: "By ELM GWANDARU",
