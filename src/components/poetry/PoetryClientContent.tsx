@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { poemList, Poem } from "@/data/poetryData";
@@ -58,6 +59,29 @@ function PoemDisplay({ poem }: { poem: Poem }) {
           <span>{poem.date}</span>
         </div>
       </ScrollReveal>
+
+      {/* Accompanying Visual Artwork (if available) */}
+      {poem.image && (
+        <ScrollReveal direction="up" duration={0.8} delay={0.15}>
+          <div className="relative w-full max-w-md mx-auto mb-12 overflow-hidden border border-accent-500/30 bg-primary-900/40 p-2 sm:p-3 shadow-[0_0_35px_rgba(210,179,106,0.12)]">
+            <div className="relative aspect-[2/3] w-full overflow-hidden">
+              <Image
+                src={poem.image}
+                alt={poem.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 450px"
+                className="object-cover object-center transition-transform duration-700 hover:scale-105"
+                priority
+              />
+            </div>
+            <div className="mt-3 text-center">
+              <p className="font-manrope text-[0.6rem] tracking-[0.25em] uppercase text-accent-400/80">
+                Visual Iconography · {poem.title}
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
+      )}
 
       {/* Stanzas Body */}
       <div className="space-y-8">

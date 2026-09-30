@@ -10,6 +10,15 @@ export interface Artwork {
 
 export const artworkList: Artwork[] = [
   {
+    id: "odi-to-ngono-kundalini",
+    title: "Odi to Ngono (The Sacred Kundalini)",
+    category: "Sacred Symbolism",
+    year: "2026",
+    medium: "Digital Canvas & Sacred Alchemy",
+    description: "Two divine beings uniting at the altar of creation, with the ancient golden serpent of kundalini rising between the cosmos, ancient temples, and celestial waters.",
+    imageUrl: "/art/odi-to-ngono.jpg",
+  },
+  {
     id: "flower-of-life-cosmos",
     title: "Sacred Flower over the Milky Way",
     category: "Sacred Symbolism",

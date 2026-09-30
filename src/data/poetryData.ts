@@ -5,10 +5,28 @@ export interface Poem {
   author: string;
   date: string;
   category: string;
+  image?: string;
   stanzas: string[];
 }
 
 export const poemList: Poem[] = [
+  {
+    id: "odi-to-ngono",
+    title: "Odi to Ngono",
+    subtitle: "By ELM GWandaru",
+    author: "ELM GWandaru",
+    date: "September 2026",
+    category: "Sacred Eros & Kundalini",
+    image: "/poetry/odi-to-ngono.jpg",
+    stanzas: [
+      "We undress not merely to touch,\nbut to remember what the universe felt like before it had a name.\nEvery sigh, a relic of creation —\nevery tremor, the echo of gods too shy to speak.",
+      "Lust is not sin; it is the sermon.\nThe body, a cathedral built in blood and lightning.\nEach kiss is a priest at the altar of oblivion,\neach moan a scripture rewritten in tongues that shame language.",
+      "We are both worshippers and arsonists,\nburning in the same temple we kneel before.\nThe flesh remembers what the mind denies —\nthat pleasure is the oldest prayer,\nthe first dialect of consciousness.",
+      "In the spiral of hips, the serpent stirs,\nthat ancient kundalini —\na golden coil of rebellion,\nslithering up the spine like a thief of heaven,\nstealing the illusion of separation.",
+      "Two bodies meet, but what unites\nis older than birth and more patient than death.\nThe boundaries melt —\nyour breath becomes mine,\nand mine, a storm uncoiling in your bones.",
+      "We die there — briefly, beautifully —\nand are reborn in the sweat of our undoing.\nAfter, silence comes not as shame but as revelation:\nthat even in the act of forgetting,\nwe have remembered what we are —\n**sparks pretending to be skin.**",
+    ],
+  },
   {
     id: "them-lessons",
     title: "Them Lessons",
