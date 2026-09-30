@@ -62,6 +62,7 @@ function PostCard({ post }: PostCardProps) {
 const categories = [
   "All",
   "Reflections",
+  "Essays",
   "Philosophy",
   "Astronomy",
   "Ancient Civilizations",
@@ -71,9 +72,11 @@ export default function BlogClientContent() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const featuredPost = blogPosts[0]; // THE LIFE AND TIMES
-  const otherPosts = blogPosts.filter((p) =>
-    selectedCategory === "All" ? true : p.category === selectedCategory
-  );
+  const otherPosts = blogPosts
+    .slice(1) // exclude featured
+    .filter((p) =>
+      selectedCategory === "All" ? true : p.category === selectedCategory
+    );
 
   return (
     <div className="w-full max-w-5xl mx-auto">

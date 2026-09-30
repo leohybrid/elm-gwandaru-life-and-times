@@ -57,9 +57,9 @@ export default function Footer() {
 
           <Link
             href="/"
-            className="font-cinzel text-accent-400 hover:text-accent-300 text-2xl md:text-3xl tracking-[0.3em] transition-colors"
+            className="font-cinzel text-accent-400 hover:text-accent-300 text-2xl md:text-3xl tracking-[0.2em] transition-colors"
           >
-            ELM GWANDARU
+            ELM GWandaru
           </Link>
           <p className="font-cormorant text-accent-500/80 text-sm italic font-light mt-2 tracking-wide">
             Life and Times

@@ -65,20 +65,22 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-cinzel text-accent-500 text-lg md:text-xl tracking-[0.25em] font-normal hover:text-accent-300 transition-colors focus-visible:outline-2 focus-visible:outline-accent-500"
+            className="font-cinzel text-accent-400 text-base md:text-lg font-normal hover:text-accent-200 transition-colors focus-visible:outline-2 focus-visible:outline-accent-500 inline-flex items-center gap-2"
+            style={{ letterSpacing: "0.12em" }}
           >
-            ELM GWANDARU
+            <span>ELM</span>
+            <span>GWandaru</span>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden xl:flex items-center space-x-7">
+          <div className="hidden xl:flex items-center space-x-8">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative font-manrope text-[0.7rem] uppercase tracking-[0.2em] text-secondary-400 hover:text-accent-300 transition-colors py-2 focus-visible:outline-2 focus-visible:outline-accent-500"
+                  className="relative font-manrope text-base tracking-wide text-accent-200/80 hover:text-accent-300 transition-colors py-2 focus-visible:outline-2 focus-visible:outline-accent-500"
                 >
                   {link.label}
                   {isActive && (
@@ -95,7 +97,7 @@ export default function Navbar() {
             {/* Members Portal Link */}
             <button
               onClick={() => setIsMemberModalOpen(true)}
-              className="font-manrope text-[0.7rem] uppercase tracking-[0.2em] text-accent-500 hover:text-accent-300 border border-accent-500/30 hover:border-accent-500 px-3.5 py-1.5 transition-all duration-300 cursor-pointer"
+              className="font-manrope text-base tracking-wide text-accent-400 hover:text-accent-200 border border-accent-500/50 hover:border-accent-500 px-4 py-1.5 transition-all duration-300 cursor-pointer"
             >
               Members
             </button>
@@ -166,7 +168,7 @@ export default function Navbar() {
             className="fixed inset-0 z-30 bg-primary-950/98 backdrop-blur-lg flex flex-col justify-center px-8 md:px-16 xl:hidden"
           >
             <div className="flex flex-col space-y-5 max-w-md mx-auto w-full text-center">
-              <h3 className="font-cinzel text-accent-500/40 text-[0.65rem] tracking-[0.3em] uppercase mb-2">
+              <h3 className="font-cinzel text-accent-500/40 text-sm tracking-widest mb-2">
                 Navigation
               </h3>
               {navLinks.map((link, idx) => {
@@ -182,8 +184,8 @@ export default function Navbar() {
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={cn(
-                        "font-manrope text-base uppercase tracking-[0.25em] transition-colors relative block py-1.5",
-                        isActive ? "text-accent-500" : "text-secondary-400 hover:text-accent-300"
+                        "font-manrope text-xl tracking-wide transition-colors relative block py-1.5",
+                        isActive ? "text-accent-500" : "text-accent-200/80 hover:text-accent-300"
                       )}
                     >
                       {link.label}
@@ -202,7 +204,7 @@ export default function Navbar() {
                     setIsMobileMenuOpen(false);
                     setIsMemberModalOpen(true);
                   }}
-                  className="w-full font-manrope text-sm uppercase tracking-[0.25em] text-accent-300 border border-accent-500/40 py-2.5 bg-accent-500/10 mt-4"
+                  className="w-full font-manrope text-lg tracking-wide text-accent-300 border border-accent-500/40 py-2.5 bg-accent-500/10 mt-4"
                 >
                   Members Portal
                 </button>

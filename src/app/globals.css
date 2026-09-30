@@ -51,11 +51,13 @@
   --color-foreground: var(--color-foreground);
   --color-muted: var(--color-muted);
 
-  /* Fonts */
-  --font-cinzel: var(--font-cinzel), "Times New Roman", serif;
-  --font-cormorant: var(--font-cormorant), "Georgia", serif;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-manrope: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  /* Fonts — Hipster Script Pro is the universal typeface */
+  --font-cinzel: var(--font-hipster), cursive;
+  --font-cormorant: var(--font-hipster), cursive;
+  --font-sans: var(--font-hipster), cursive;
+  --font-manrope: var(--font-hipster), cursive;
+  --font-hipster: var(--font-hipster), cursive;
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   /* Animation durations */
   --animate-breathing: breathing 35s ease-in-out infinite;
@@ -116,10 +118,47 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-hipster), cursive;
+  font-size: 1.125rem;
+  word-spacing: 0.2em;
+  letter-spacing: 0.015em;
+  /* Disable contextual alternates globally — prevents small-N glyph in GWANDARU */
+  font-variant-ligatures: none;
+  font-feature-settings: "calt" 0, "liga" 0, "clig" 0, "dlig" 0, "swsh" 0, "salt" 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Propagate feature settings to all children */
+* {
+  font-variant-ligatures: inherit;
+  font-feature-settings: inherit;
+}
+
+/* Headings: clear sentence case, generous spacing */
+h1, h2, h3, h4, h5, h6 {
+  text-transform: none !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.25em;
+}
+
+/* Suppress uppercase utility on script font — ALL-CAPS in Hipster Script looks broken */
+.uppercase {
+  text-transform: none;
+}
+
+/* Keep Inter for form inputs so typing remains legible */
+input, textarea, select {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+
+/* Buttons keep Inter but stay readable */
+button {
+  font-family: var(--font-hipster), cursive;
+  word-spacing: 0.05em;
 }
 
 /* Selection */

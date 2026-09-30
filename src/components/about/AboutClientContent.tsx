@@ -3,16 +3,20 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { aboutManifesto } from "@/data/aboutData";
 
-// Helper to parse markdown-style double stars **text** into UPPERCASE gold spans
+// Helper to parse markdown-style double stars **text** into bold gold spans
 function parseFormattedText(text: string) {
   const parts = text.split(/(\*\*.*?\*\*)/g);
   return parts.map((part, i) => {
     if (part.startsWith("**") && part.endsWith("**")) {
-      const cleanText = part.slice(2, -2).toUpperCase();
+      const cleanText = part.slice(2, -2);
       return (
-        <span key={i} className="font-manrope text-accent-300 tracking-wider font-semibold uppercase px-1">
+        <strong
+          key={i}
+          className="text-accent-300 font-bold"
+          style={{ wordSpacing: "0.1em" }}
+        >
           {cleanText}
-        </span>
+        </strong>
       );
     }
     return part;
@@ -29,12 +33,12 @@ export default function AboutClientContent() {
       {/* Title: Underlined + First Word Enlarged */}
       <ScrollReveal direction="up" duration={0.8}>
         <div className="border-b border-accent-500/30 pb-6 mb-4">
-          <h1 className="font-cinzel tracking-[0.12em] font-normal leading-tight">
-            <span className="text-accent-400 text-4xl sm:text-6xl md:text-7xl tracking-[0.15em] mr-2 inline-block font-medium">
+          <h1 className="font-cinzel tracking-[0.1em] font-normal leading-tight">
+            <span className="text-accent-400 text-3xl sm:text-4xl md:text-5xl tracking-[0.12em] mr-2 inline-block font-medium">
               {firstWord}
             </span>
             {restOfTitle && (
-              <span className="text-accent-200 text-2xl sm:text-4xl md:text-5xl">
+              <span className="text-accent-200 text-xl sm:text-2xl md:text-3xl">
                 {restOfTitle}
               </span>
             )}

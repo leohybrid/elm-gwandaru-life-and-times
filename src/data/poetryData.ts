@@ -12,8 +12,8 @@ export const poemList: Poem[] = [
   {
     id: "them-lessons",
     title: "Them Lessons",
-    subtitle: "By ELM GWANDARU",
-    author: "ELM GWANDARU",
+    subtitle: "By ELM GWandaru",
+    author: "ELM GWandaru",
     date: "September 2026",
     category: "Reflections & Survival",
     stanzas: [
@@ -31,8 +31,8 @@ export const poemList: Poem[] = [
   {
     id: "the-fault-in-the-immortal",
     title: "The Fault in the Immortal",
-    subtitle: "By ELM GWANDARU",
-    author: "ELM GWANDARU",
+    subtitle: "By ELM GWandaru",
+    author: "ELM GWandaru",
     date: "September 2026",
     category: "Reflections & Philosophy",
     stanzas: [

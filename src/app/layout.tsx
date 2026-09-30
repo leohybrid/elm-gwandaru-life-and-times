@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, Inter, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
 import AnimationProvider from "@/providers/AnimationProvider";
@@ -38,6 +39,12 @@ const manrope = Manrope({
   variable: "--font-manrope",
   display: "swap",
   weight: ["300", "400", "500", "600"],
+});
+
+const hipsterScript = localFont({
+  src: "../../public/fonts/HipsterScriptPro.otf",
+  variable: "--font-hipster",
+  display: "swap",
 });
 
 /* ============================================
@@ -90,7 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cinzel.variable} ${cormorant.variable} ${inter.variable} ${manrope.variable}`}
+      className={`${cinzel.variable} ${cormorant.variable} ${inter.variable} ${manrope.variable} ${hipsterScript.variable}`}
     >
       <body className="relative bg-primary-950 text-foreground">
         <AnimationProvider>
