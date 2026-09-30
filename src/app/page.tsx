@@ -3,8 +3,8 @@ import {
   QuoteSection,
   FeaturedSection,
   AboutTeaser,
-  JournalPreview,
 } from "@/components/sections/HomeSections";
+import LatestFeedSection from "@/components/sections/LatestFeedSection";
 
 export default function Home() {
   return (
@@ -15,14 +15,14 @@ export default function Home() {
       {/* Section 2: Celestial quote */}
       <QuoteSection />
 
-      {/* Section 3: Featured works */}
+      {/* Section 3: Live Home Feed — Latest from Newest */}
+      <LatestFeedSection />
+
+      {/* Section 4: Selected Works */}
       <FeaturedSection />
 
-      {/* Section 4: About teaser */}
+      {/* Section 5: About teaser */}
       <AboutTeaser />
-
-      {/* Section 5: Latest from journal */}
-      <JournalPreview />
     </>
   );
 }
